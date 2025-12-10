@@ -1,10 +1,10 @@
 const express = require("express");
 const path = require("path");
-const sqlite3 = require("mysql2");
+const mysql = require("mysql2");
 
 
 const app = express();
-const PORT = 3000;
+const port = 3000;
 // setting view engine EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -18,7 +18,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',        // isi kalau pakai password
-    database: 'toko_db'  // ganti sesuai nama DB kamu
+    database: 'Chinook.db'  // ganti sesuai nama DB kamu
 });
 
 
