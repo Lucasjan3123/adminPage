@@ -1,0 +1,34 @@
+<%- include('layout', { body: '' }) %>
+
+<h2>Daftar Pembelian</h2>
+
+<table border="1" cellpadding="4">
+    <tr>
+        <th>ID</th>
+        <th>Produk</th>
+        <th>Qty</th>
+        <th>Total Harga</th>
+        <th>Status</th>
+        <th>Tanggal</th>
+        <th>Aksi</th>
+    </tr>
+    <% purchases.forEach(p => { %>
+        <tr>
+            <td><%= p.id %></td>
+            <td><%= p.product_name %></td>
+            <td><%= p.qty %></td>
+            <td><%= p.total_price %></td>
+            <td><%= p.status %></td>
+            <td><%= p.created_at %></td>
+            <td>
+                <% if (p.status === 'ACTIVE') { %>
+                    <form action="/purchases/<%= p.id %>/cancel" method="POST" style="display:inline;">
+                        <button type="submit">Cancel</button>
+                    </form>
+                <% } else { %>
+                    -
+                <% } %>
+            </td>
+        </tr>
+    <% }) %>
+</table>

@@ -1,0 +1,19 @@
+<%- include('layout', { body: '' }) %>
+
+<h2>Input Pembelian</h2>
+
+<form action="/purchases" method="POST">
+    <label>Produk:</label>
+    <select name="product_id">
+        <% products.forEach(p => { %>
+            <option value="<%= p.id %>"><%= p.name %> - <%= p.price %></option>
+        <% }) %>
+    </select>
+    <br><br>
+
+    <label>Qty:</label>
+    <input type="number" name="qty" min="1" required>
+    <br><br>
+
+    <button type="submit">Simpan</button>
+</form>

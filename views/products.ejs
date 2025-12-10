@@ -1,0 +1,20 @@
+<%- include('layout', { body: '' }) %>
+
+<h2>Daftar Produk</h2>
+
+<table border="1" cellpadding="4">
+    <tr>
+        <th>ID</th>
+        <th>Nama</th>
+        <th>Harga</th>
+        <th>Stok</th>
+    </tr>
+    <% products.forEach(p => { %>
+        <tr>
+            <td><%= p.id %></td>
+            <td><%= p.name %></td>
+            <td><%= p.price %></td>
+            <td><%= p.stock %></td>
+        </tr>
+    <% }) %>
+</table>
